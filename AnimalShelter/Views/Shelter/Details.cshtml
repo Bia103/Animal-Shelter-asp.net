@@ -1,0 +1,28 @@
+﻿
+@model AnimalShelter.Models.Shelter
+<h2>@Model.Name</h2>
+<table>
+    <tbody>
+        <tr>
+            <td>@Html.LabelFor(p => p.Name, "Name:", new { style = "marginright:10px" })</td>
+            <td>@Html.DisplayFor(p => p.Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(p => p.Location.City, "City:", new { style = "margin-right:10px" })</td>
+            <td>@Html.DisplayFor(p => p.Location.City)</td>
+        </tr>
+        <tr>
+
+            <td>@Html.LabelFor(p => p.Location.Adress, "Adress:", new { style = "margin-right:10px" })</td>
+            <td>@Html.DisplayFor(p => p.Location.Adress)</td>
+
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(p => p.Location.Number, "Number:", new { style = "margin-right:10px" })</td>
+            <td>@Html.DisplayFor(p => p.Location.Number)</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<br />
+

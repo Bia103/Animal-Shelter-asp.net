@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class= "pozitie text-center"><img src="~/Content/cat-dog.png" /></div>
+<div class="text-center panel-heading panel ">
+
+    <p></p>
+    <br />
+    <h1>@ViewBag.info.Message</h1>
+
+    <br>
+
+
+    <p>Number of animals that are living curently in our shelters:</p>
+
+    <p>@ViewBag.info.NumberOfAnimals</p>
+    <br />
+    <p>Number of users:</p>
+
+    <p>@ViewBag.info.NumberOfUsers</p>
+    <br />
+
+    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Past", "Details")
+        <br>
+        @Html.ActionLink("Edit the message", "Edit")
+    }
+
+</div>

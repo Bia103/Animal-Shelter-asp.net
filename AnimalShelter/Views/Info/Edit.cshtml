@@ -1,0 +1,30 @@
+﻿@model AnimalShelter.Models.Info
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div class="panel">
+    <h2 class="text-center">Edit</h2>
+    @using (Html.BeginForm(actionName: "Edit", controllerName: "Info"))
+    {
+
+        @Html.HttpMethodOverride(HttpVerbs.Put)
+
+        <div class="panel-body">
+            <br />
+
+            @Html.Label("Message", "Message:")
+            <br />
+            @Html.EditorFor(a => a.Message, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(a => a.Message, "", new { @class = "text-danger" })
+            <br />
+
+
+
+            <button class="btn btn-primary" type="submit">Update</button>
+        </div>
+    }
+
+</div>

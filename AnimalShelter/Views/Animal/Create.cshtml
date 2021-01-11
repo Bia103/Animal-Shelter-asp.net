@@ -1,0 +1,31 @@
+﻿@model AnimalShelter.Models.Animal
+@{
+    ViewBag.Title = "Create";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm(actionName: "New", controllerName: "Book", method: FormMethod.Post))
+{
+    @Html.Label("Name", "Animal's name:")
+    <br />
+    @Html.TextBoxFor(a => a.Name, null, new { placeholder = "Type in the animal's name", @class = "formcontrol" })
+    @Html.ValidationMessageFor(a => a.Name, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Age", "Age:")
+    <br />
+    @Html.TextBoxFor(a => a.Age, null, new { placeholder = "Type in the animal's age", @class = "formcontrol" })
+    @Html.ValidationMessageFor(a => a.Age, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Race", "Race:")
+    <br />
+    @Html.TextBoxFor(a => a.Race, null, new { placeholder = "Type in the animal's race", @class = "formcontrol", @rows = "10" })
+    @Html.ValidationMessageFor(a => a.Race, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Shelter", "Shelter:")
+    @Html.TextBoxFor(a => a.ShelterId, null, new { placeholder = "Type in the animal's shelter", @class = "formcontrol", @rows = "10" })
+    @Html.ValidationMessageFor(a => a.ShelterId, "", new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+
+

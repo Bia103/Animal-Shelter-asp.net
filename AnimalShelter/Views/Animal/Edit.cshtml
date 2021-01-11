@@ -1,0 +1,42 @@
+﻿
+@model AnimalShelter.Models.Animal
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Animal"))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    @Html.HiddenFor(a => a.AnimalId)
+    <br />
+
+    @Html.Label("Name", "Name:")
+    <br />
+    @Html.EditorFor(a => a.Name, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(a => a.Name, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Age", "Age:")
+    <br />
+    @Html.EditorFor(a => a.Age, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(a => a.Age, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Race", "Race:")
+    <br />
+    @Html.TextAreaFor(a => a.Race, new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.Race, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Shelter", "Shelter:")
+    <br />
+    @Html.DropDownListFor(a => a.ShelterId, new SelectList(Model.ShelterList, "Value", "Text"), "Choose a book shelter", new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.ShelterId, "", new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <button class="btn btn-primary" type="submit">Update</button>
+}

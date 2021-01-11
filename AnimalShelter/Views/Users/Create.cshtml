@@ -1,0 +1,31 @@
+﻿@model AnimalShelter.Models.UserViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Users", method: FormMethod.Post))
+{
+    @Html.Label("UserName", "UserName:")
+    <br />
+    @Html.TextBoxFor(user => user.User.UserName, null, new { placeholder = "Type in a username", @class = "form-control" })
+    @Html.ValidationMessageFor(user => user.User.UserName, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Email", "Email:")
+    <br />
+    @Html.TextBoxFor(user => user.User.Email, null, new { placeholder = "Type in ther user's email", @class = "form-control" })
+    @Html.ValidationMessageFor(user => user.User.Email, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Password", "Password:")
+    @Html.TextBoxFor(user => user.Password, null, new { placeholder = "Type in ther user's password", @class = "form-control" })
+    @Html.ValidationMessageFor(user => user.Password, "", new { @class = "text-danger" })
+    <br />
+
+    <br />
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}

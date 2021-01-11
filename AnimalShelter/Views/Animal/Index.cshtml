@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var animal in ViewBag.Animals)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @Html.Label("Name", "Name:")
+            <br />
+            <p>@animal.Name</p>
+
+            @Html.Label("Race", "Reace:")
+            <br />
+            <p>@animal.Race</p>
+
+            @Html.Label("Shelter", "Shelter:")
+            <br />
+            <p>@animal.Shelter.Name</p>
+            @Html.ActionLink("Update", "Edit", new { id = animal.AnimalId })
+
+
+
+            @using (Html.BeginForm(actionName: "Delete", controllerName: "Animal", method: FormMethod.Post, routeValues: new { id = animal.AnimalId }))
+            {
+
+
+                //show link
+
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
+            }
+
+
+
+        </div>
+    </div>
+}
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Add a new animal", "New")
+    
+}

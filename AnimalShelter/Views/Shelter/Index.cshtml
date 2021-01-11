@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var shelter in ViewBag.Shelters)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @Html.Label("Name", "Name:")
+            <br />
+            <p>@shelter.Name</p>
+
+
+            @Html.ActionLink("Update", "Edit", new { id = shelter.ShelterId })
+            @Html.ActionLink("View More", "Details", new { id = shelter.ShelterId })
+
+
+            @using (Html.BeginForm(actionName: "Delete", controllerName: "Shelter", method: FormMethod.Post, routeValues: new { id = shelter.ShelterId }))
+            {
+
+
+                //show link
+
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
+            }
+
+
+
+        </div>
+    </div>
+}
+
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Add a new shelter", "New")
+
+}

@@ -1,0 +1,37 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<body>
+@foreach (var i in ViewBag.Info)
+{
+    <div class="panel panel-default">
+        <div class="panel-body text-center">
+            @Html.Label("Message", "Message:")
+            <br />
+            <p>@i.Message</p>
+
+            @Html.Label("Data", "Data:")
+            <br />
+            <p>@i.Time</p>
+
+            @Html.Label("Number of Animals", "Number of Animals:")
+            <br />
+            <p>@i.NumberOfAnimals</p>
+
+            @Html.Label("Number of Users", "Number of Users:")
+            <br />
+            <p>@i.NumberOfUsers</p>
+
+
+
+
+
+
+        </div>
+    </div>
+}
+</body>

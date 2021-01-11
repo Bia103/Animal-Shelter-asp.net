@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var v in ViewBag.Vets)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @Html.Label("Name", "Name:")
+            <br />
+            <p>@v.Name</p>
+
+            @Html.Label("Phone", "Phone:")
+            <br />
+            <p>@v.PhoneNumber</p>
+
+            @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+            {
+
+
+
+            @Html.ActionLink("Update", "Edit", new { id = v.VetId })
+
+
+            using (Html.BeginForm(actionName: "Delete", controllerName: "Vet", method: FormMethod.Post, routeValues: new { id = v.VetId }))
+            {
+
+
+                //show link
+
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
+            }
+
+            }
+
+        </div>
+    </div>
+}
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Add a new vet", "New")
+
+}

@@ -1,0 +1,26 @@
+﻿@model AnimalShelter.Models.ApplicationUser
+@{
+    ViewBag.Title = "TakeCare";
+}
+
+<h2>Take Care</h2>
+
+@using (Html.BeginForm(actionName: "TakeCare", controllerName: "Users"))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.HiddenFor(b => b.Id)
+    <br />
+
+   
+    <br />
+    for (int i = 0; i < Model.AnimalList.Count(); i++)
+    {
+        @Html.HiddenFor(b => b.AnimalList[i].Id)
+        @Html.HiddenFor(b => b.AnimalList[i].Name)
+        @Html.CheckBoxFor(b => b.AnimalList[i].Checked)
+        @Html.DisplayFor(b => b.AnimalList[i].Name)
+        <br />
+    }
+
+    <button class="btn btn-sm btn-success" type="submit">Save changes</button>
+}

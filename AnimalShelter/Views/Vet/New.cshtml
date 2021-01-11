@@ -1,0 +1,22 @@
+﻿@model AnimalShelter.Models.Vet
+@{
+    ViewBag.Title = "Create";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm(actionName: "New", controllerName: "Vet", method: FormMethod.Post))
+{
+    @Html.Label("Name", "Vet's name:")
+    <br />
+    @Html.TextBoxFor(a => a.Name, null, new { placeholder = "Type in the animal's name", @class = "formcontrol" })
+    @Html.ValidationMessageFor(a => a.Name, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("PhoneNumber", "Phone:")
+    <br />
+    @Html.TextBoxFor(a => a.PhoneNumber, null, new { placeholder = "Type in the vet's number", @class = "formcontrol" })
+    @Html.ValidationMessageFor(a => a.PhoneNumber, "", new { @class = "text-danger" })
+    <br />
+   
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+
+

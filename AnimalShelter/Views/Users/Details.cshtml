@@ -1,0 +1,26 @@
+﻿@model AnimalShelter.Models.ApplicationUser
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+
+@Html.LabelFor(u => u.Email, "Email:")
+<br />
+@Html.DisplayFor(u => u.Email)
+<br />
+<br />
+
+@Html.LabelFor(u => u.UserName, "Username:")
+<br />
+@Html.DisplayFor(u => u.UserName)
+<br />
+<br />
+
+<label>Role:</label>
+<p>@ViewBag.UserRole</p>
+
+@using (Html.BeginForm(actionName: "Delete", controllerName: "Users", method: FormMethod.Post, routeValues: new { id = ViewBag.UserId }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
+}

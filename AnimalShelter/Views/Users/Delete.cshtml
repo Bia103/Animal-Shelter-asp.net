@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+@using (Html.BeginForm(actionName: "Delete", controllerName: "Users", routeValues: new { id = @Model.User.Id }))
+{
+
+
+    <button class="btn btn-sm btn-success" type="submit">I'm sure that I want to delete this user</button>
+}
